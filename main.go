@@ -15,6 +15,7 @@ import (
 	"github.com/bborbe/errors"
 	libhttp "github.com/bborbe/http"
 	"github.com/bborbe/k8s"
+	libmetrics "github.com/bborbe/metrics"
 	"github.com/bborbe/run"
 	libsentry "github.com/bborbe/sentry"
 	"github.com/bborbe/service"
@@ -26,7 +27,6 @@ import (
 
 	"github.com/bborbe/alert-controller/pkg"
 	"github.com/bborbe/alert-controller/pkg/factory"
-	libmetrics "github.com/bborbe/alert-controller/pkg/metrics"
 )
 
 func main() {
@@ -43,12 +43,13 @@ type application struct {
 	PrometheusURL      string            `required:"true"  arg:"prometheus-url"           env:"PROMETHEUS_URL"           usage:"Prometheus url"`
 	PrometheusUsername string            `required:"false" arg:"prometheus-user"          env:"PROMETHEUS_USER"          usage:"Prometheus user"`
 	PrometheusPassword string            `required:"false" arg:"prometheus-password"      env:"PROMETHEUS_PASSWORD"      usage:"Prometheus password"                                       display:"length"`
+	BuildGitVersion    string            `required:"false" arg:"build-git-version"        env:"BUILD_GIT_VERSION"        usage:"Build Git version (git describe --tags --always --dirty)"                   default:"dev"`
 	BuildGitCommit     string            `required:"false" arg:"build-git-commit"         env:"BUILD_GIT_COMMIT"         usage:"Build Git commit hash"                                                      default:"none"`
 	BuildDate          *libtime.DateTime `required:"false" arg:"build-date"               env:"BUILD_DATE"               usage:"Build timestamp (RFC3339)"`
 }
 
 func (a *application) Run(ctx context.Context, sentryClient libsentry.Client) error {
-	libmetrics.NewBuildInfoMetrics().SetBuildInfo(a.BuildDate)
+	libmetrics.NewBuildInfoMetrics().SetBuildInfo(a.BuildGitVersion, a.BuildGitCommit, a.BuildDate)
 
 	k8sClientset, err := k8s.CreateClientset(a.Kubeconfig)
 	if err != nil {
