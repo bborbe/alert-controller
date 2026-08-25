@@ -1,19 +1,19 @@
 module github.com/bborbe/alert-controller
 
-go 1.26.6
+go 1.27.0
 
 require (
-	github.com/bborbe/alert v1.8.20
-	github.com/bborbe/cron v1.8.24
-	github.com/bborbe/errors v1.5.17
-	github.com/bborbe/http v1.26.20
-	github.com/bborbe/k8s v1.14.9
-	github.com/bborbe/log v1.6.22
-	github.com/bborbe/metrics v0.5.12
-	github.com/bborbe/run v1.9.34
-	github.com/bborbe/sentry v1.9.24
-	github.com/bborbe/service v1.10.8
-	github.com/bborbe/time v1.27.8
+	github.com/bborbe/alert v1.8.25
+	github.com/bborbe/cron v1.8.27
+	github.com/bborbe/errors v1.5.21
+	github.com/bborbe/http v1.26.24
+	github.com/bborbe/k8s v1.14.14
+	github.com/bborbe/log v1.6.25
+	github.com/bborbe/metrics v0.5.15
+	github.com/bborbe/run v1.9.37
+	github.com/bborbe/sentry v1.9.27
+	github.com/bborbe/service v1.10.9
+	github.com/bborbe/time v1.27.10
 	github.com/getsentry/sentry-go v0.48.0
 	github.com/golang/glog v1.2.5
 	github.com/gorilla/mux v1.8.1
@@ -21,44 +21,44 @@ require (
 	github.com/onsi/gomega v1.42.1
 	github.com/prometheus/client_golang v1.24.1
 	gopkg.in/yaml.v3 v3.0.1
-	k8s.io/api v0.36.3
-	k8s.io/apiextensions-apiserver v0.36.3
-	k8s.io/apimachinery v0.36.3
-	k8s.io/client-go v0.36.3
+	k8s.io/api v0.36.4
+	k8s.io/apiextensions-apiserver v0.36.4
+	k8s.io/apimachinery v0.36.4
+	k8s.io/client-go v0.36.4
 )
 
 require (
 	github.com/Masterminds/semver/v3 v3.5.0 // indirect
-	github.com/bborbe/argument/v2 v2.12.34 // indirect
-	github.com/bborbe/collection v1.20.20 // indirect
-	github.com/bborbe/kv v1.21.9 // indirect
-	github.com/bborbe/math v1.3.18 // indirect
-	github.com/bborbe/parse v1.10.19 // indirect
-	github.com/bborbe/validation v1.4.19 // indirect
+	github.com/bborbe/argument/v2 v2.12.37 // indirect
+	github.com/bborbe/collection v1.20.24 // indirect
+	github.com/bborbe/kv v1.21.11 // indirect
+	github.com/bborbe/math v1.4.7 // indirect
+	github.com/bborbe/parse v1.10.21 // indirect
+	github.com/bborbe/validation v1.4.22 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/emicklei/go-restful/v3 v3.13.0 // indirect
-	github.com/fxamacker/cbor/v2 v2.9.2 // indirect
+	github.com/fxamacker/cbor/v2 v2.9.3 // indirect
 	github.com/go-logr/logr v1.4.4 // indirect
 	github.com/go-openapi/jsonpointer v1.0.0 // indirect
-	github.com/go-openapi/jsonreference v1.0.0 // indirect
-	github.com/go-openapi/swag v0.28.0 // indirect
-	github.com/go-openapi/swag/cmdutils v0.28.0 // indirect
-	github.com/go-openapi/swag/conv v0.28.0 // indirect
-	github.com/go-openapi/swag/fileutils v0.28.0 // indirect
-	github.com/go-openapi/swag/jsonutils v0.28.0 // indirect
-	github.com/go-openapi/swag/loading v0.28.0 // indirect
-	github.com/go-openapi/swag/mangling v0.28.0 // indirect
-	github.com/go-openapi/swag/netutils v0.28.0 // indirect
-	github.com/go-openapi/swag/pools v0.28.0 // indirect
-	github.com/go-openapi/swag/stringutils v0.28.0 // indirect
-	github.com/go-openapi/swag/typeutils v0.28.0 // indirect
-	github.com/go-openapi/swag/yamlutils v0.28.0 // indirect
+	github.com/go-openapi/jsonreference v1.0.1 // indirect
+	github.com/go-openapi/swag v0.29.1 // indirect
+	github.com/go-openapi/swag/cmdutils v0.29.1 // indirect
+	github.com/go-openapi/swag/conv v0.29.1 // indirect
+	github.com/go-openapi/swag/fileutils v0.29.1 // indirect
+	github.com/go-openapi/swag/jsonutils v0.29.1 // indirect
+	github.com/go-openapi/swag/loading v0.29.1 // indirect
+	github.com/go-openapi/swag/mangling v0.29.1 // indirect
+	github.com/go-openapi/swag/netutils v0.29.1 // indirect
+	github.com/go-openapi/swag/pools v0.29.1 // indirect
+	github.com/go-openapi/swag/stringutils v0.29.1 // indirect
+	github.com/go-openapi/swag/typeutils v0.29.1 // indirect
+	github.com/go-openapi/swag/yamlutils v0.29.1 // indirect
 	github.com/go-task/slim-sprig/v3 v3.0.0 // indirect
 	github.com/google/gnostic-models v0.7.1 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
-	github.com/google/pprof v0.0.0-20260802141513-ef3492d7dac3 // indirect
+	github.com/google/pprof v0.0.0-20260825171938-4d453200e7d9 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
@@ -87,7 +87,7 @@ require (
 	gopkg.in/evanphx/json-patch.v4 v4.13.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	k8s.io/klog/v2 v2.140.0 // indirect
-	k8s.io/kube-openapi v0.0.0-20260721132016-d427ff9ee9ad // indirect
+	k8s.io/kube-openapi v0.0.0-20260821135717-be32def86098 // indirect
 	k8s.io/utils v0.0.0-20260707023825-cf1189d6abe3 // indirect
 	sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730 // indirect
 	sigs.k8s.io/randfill v1.0.0 // indirect
