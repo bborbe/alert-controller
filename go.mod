@@ -1,6 +1,6 @@
 module github.com/bborbe/alert-controller
 
-go 1.27.0
+go 1.27.1
 
 require (
 	github.com/bborbe/alert v1.8.28
