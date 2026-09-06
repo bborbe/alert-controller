@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- chore: update github.com/bborbe/alert to v1.8.30, github.com/bborbe/cron to v1.8.31, github.com/bborbe/errors to v1.6.1, github.com/bborbe/http to v1.26.26, github.com/bborbe/k8s to v1.14.19, github.com/bborbe/metrics to v0.6.2, github.com/bborbe/service to v1.10.13, github.com/bborbe/time to v1.27.14, k8s.io/api to v0.38.0-alpha.0, k8s.io/apimachinery to v0.38.0-alpha.0, k8s.io/client-go to v0.38.0-alpha.0
+
 ## v0.3.3
 
 - chore: update Go to 1.27.1
