@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- chore: update go module dependencies
+
 ## v0.3.7
 
 - chore: update github.com/bborbe/cron to v1.9.2, github.com/bborbe/http to v1.26.29, github.com/bborbe/k8s to v1.14.22, github.com/bborbe/service to v1.10.16, k8s.io/api to v0.38.0-alpha.2, k8s.io/apiextensions-apiserver to v0.38.0-alpha.2, k8s.io/apimachinery to v0.38.0-alpha.2, k8s.io/client-go to v0.38.0-alpha.2
