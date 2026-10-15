@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- chore: update github.com/bborbe/http to v1.26.30
+
 ## v0.3.8
 
 - chore: update go module dependencies
