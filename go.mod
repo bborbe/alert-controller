@@ -6,7 +6,7 @@ require (
 	github.com/bborbe/alert v1.8.31
 	github.com/bborbe/cron v1.9.2
 	github.com/bborbe/errors v1.6.3
-	github.com/bborbe/http v1.26.29
+	github.com/bborbe/http v1.26.30
 	github.com/bborbe/k8s v1.14.22
 	github.com/bborbe/log v1.7.4
 	github.com/bborbe/metrics v0.6.7
