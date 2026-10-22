@@ -1,19 +1,19 @@
 module github.com/bborbe/alert-controller
 
-go 1.27.2
+go 1.27.3
 
 require (
-	github.com/bborbe/alert v1.8.31
-	github.com/bborbe/cron v1.9.2
+	github.com/bborbe/alert v1.8.32
+	github.com/bborbe/cron v1.9.4
 	github.com/bborbe/errors v1.6.3
 	github.com/bborbe/http v1.26.30
-	github.com/bborbe/k8s v1.14.22
+	github.com/bborbe/k8s v1.14.23
 	github.com/bborbe/log v1.7.4
 	github.com/bborbe/metrics v0.6.7
 	github.com/bborbe/run v1.11.2
-	github.com/bborbe/sentry v1.10.4
-	github.com/bborbe/service v1.10.16
-	github.com/bborbe/time v1.27.16
+	github.com/bborbe/sentry v1.10.5
+	github.com/bborbe/service v1.11.0
+	github.com/bborbe/time v1.27.17
 	github.com/getsentry/sentry-go v0.50.0
 	github.com/golang/glog v1.2.5
 	github.com/gorilla/mux v1.8.1
@@ -32,9 +32,9 @@ require (
 	github.com/bborbe/argument/v2 v2.13.6 // indirect
 	github.com/bborbe/collection v1.21.2 // indirect
 	github.com/bborbe/kv v1.21.18 // indirect
-	github.com/bborbe/math v1.4.14 // indirect
+	github.com/bborbe/math v1.4.15 // indirect
 	github.com/bborbe/parse v1.12.3 // indirect
-	github.com/bborbe/validation v1.5.4 // indirect
+	github.com/bborbe/validation v1.5.5 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
@@ -49,7 +49,7 @@ require (
 	github.com/go-task/slim-sprig/v3 v3.0.0 // indirect
 	github.com/google/gnostic-models v0.7.1 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
-	github.com/google/pprof v0.0.0-20261014150452-c3b4e57cab2c // indirect
+	github.com/google/pprof v0.0.0-20261016150608-1facf8f91b50 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/pkg/errors v0.9.1 // indirect

@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- chore: update Go to 1.27.3 and github.com/bborbe/alert to v1.8.32, github.com/bborbe/cron to v1.9.4, github.com/bborbe/k8s to v1.14.23, github.com/bborbe/sentry to v1.10.5, github.com/bborbe/service to v1.11.0, github.com/bborbe/time to v1.27.17
+
 ## v0.3.9
 
 - chore: update github.com/bborbe/http to v1.26.30
