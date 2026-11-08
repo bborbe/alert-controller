@@ -1,8 +1,13 @@
 ---
-status: approved
+status: completed
 spec: [001-cluster-build-arm]
+summary: Added the five hack/ build-runner files copied byte-identically from bborbe/agent-task-executor and bborbe/go-skeleton with correct modes, extended the CHANGELOG Unreleased section, and verified via make precommit.
+execution_id: 308a7a48-3966-5b3f-9ee7-9d0296bad013-exec-003-hack-build-runner
+dark-factory-version: dev
 created: "2026-11-08T23:35:00Z"
 queued: "2026-11-08T22:53:13Z"
+started: "2026-11-08T22:55:59Z"
+completed: "2026-11-08T22:57:08Z"
 branch: dark-factory/cluster-build-arm
 ---
 
