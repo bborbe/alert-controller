@@ -6,6 +6,34 @@ ifeq ($(VERSION),)
 	VERSION := $(shell git describe --tags `git rev-list --tags --max-count=1`)
 endif
 
+# BUILD_TARGET selects where `make build` runs. `local` (the default) uses the
+# local Docker daemon; any other value names a cluster alias (sun / nukedev /
+# nukeprod) or kubectl context and builds inside that cluster as a Job rendered
+# from hack/build-job.yaml.
+BUILD_TARGET ?= local
+
+ifneq ($(BUILD_TARGET),local)
+
+# `upload`, `clean` and `buca` push or remove an image that only exists in the
+# local Docker daemon. A cluster build pushes from inside the cluster and never
+# loads the image here, so those goals have nothing to act on.
+ifneq ($(filter upload clean buca,$(MAKECMDGOALS)),)
+$(error ERROR: upload, clean and buca are local-only targets; BUILD_TARGET=$(BUILD_TARGET) builds and pushes inside the cluster. Run them without BUILD_TARGET, or use `make build BUILD_TARGET=$(BUILD_TARGET) REF=<sha> VERSION=<tag>`)
+endif
+
+# VERSION has a repo-wide default (the newest tag). On the cluster arm that
+# default would silently publish over a released image, so require the caller
+# to name the tag. `$(origin VERSION)` is `file` when the default assignment
+# above ran and `undefined` when it resolved to nothing; both mean the caller
+# did not supply a tag.
+ifneq ($(filter build,$(MAKECMDGOALS)),)
+ifneq ($(filter $(origin VERSION),file undefined),)
+$(error ERROR: the cluster arm needs an explicit VERSION. VERSION was not supplied on the command line or in the environment; its file default is $(VERSION). Pass VERSION=<scratch-tag>)
+endif
+endif
+
+endif
+
 include tools.env
 
 .PHONY: default
@@ -103,6 +131,7 @@ buca: build upload clean apply
 
 .PHONY: build
 build: check-version-tag check-go-mod
+ifeq ($(BUILD_TARGET),local)
 	DOCKER_BUILDKIT=1 \
 	docker build \
 	--no-cache \
@@ -115,9 +144,29 @@ build: check-version-tag check-go-mod
 	--build-arg BUILD_DATE=$$(date -u +%Y-%m-%dT%H:%M:%SZ) \
 	-t $(DOCKER_REGISTRY)/$(IMAGE):$(VERSION) \
 	-f Dockerfile .
+else
+# The cluster arm publishes at $(VERSION), the same expression the local arm
+# tags, so the two cannot drift. The repository URL and push-secret name are
+# literals: a configurable clone source on a Job that mounts a push credential
+# would let a caller point the credential-bearing Job at another repository.
+	BUILD_TARGET='$(BUILD_TARGET)' \
+	NAMESPACE='build' \
+	REPO_URL='https://github.com/bborbe/alert-controller.git' \
+	REF='$(REF)' \
+	TAG='$(VERSION)' \
+	DOCKERFILE='Dockerfile' \
+	IMAGE='$(DOCKER_REGISTRY)/$(IMAGE)' \
+	DOCKER_REGISTRY='$(DOCKER_REGISTRY)' \
+	PUSH='true' \
+	PUSH_SECRET='buildkit-push' \
+	TIMEOUT='3600' \
+	ALLOW_UNTAGGED_BUILD=1 \
+	hack/build-cluster.sh
+endif
 
 .PHONY: check-version-tag
 check-version-tag:
+ifeq ($(BUILD_TARGET),local)
 	@if [ -n "$(ALLOW_UNTAGGED_BUILD)" ]; then \
 		echo "ALLOW_UNTAGGED_BUILD set — skipping version/tag check"; \
 	else \
@@ -131,15 +180,18 @@ check-version-tag:
 			exit 1; \
 		fi; \
 	fi
+endif
 
 .PHONY: check-go-mod
 check-go-mod:
+ifeq ($(BUILD_TARGET),local)
 	@if [ -f "go.mod" ]; then \
 		echo "go.mod found, running go mod vendor..."; \
 		go mod vendor; \
 	else \
 		echo "go.mod not found, skipping go mod vendor."; \
 	fi
+endif
 
 
 .PHONY: upload
@@ -161,9 +213,6 @@ apply:
 		make apply; \
 		cd ..; \
 	done
-
-.PHONY: buca
-buca: build upload clean apply
 
 .PHONY: fix
 fix:

@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- feat: Add `BUILD_TARGET` to `make build` so the image can be built and pushed inside a Kubernetes cluster as a Job through `hack/build-cluster.sh`; the local arm keeps `docker build --no-cache` unchanged, the cluster arm requires a caller-supplied `VERSION`, and `upload`, `clean` and `buca` refuse at parse time when pointed at a cluster
+
 ## v0.3.12
 
 - chore: restate the do-not-merge contract in the gate workflow
