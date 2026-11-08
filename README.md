@@ -13,9 +13,30 @@ make run
 
 ## Build & publish image
 
+The image has two build arms, selected by `BUILD_TARGET`.
+
+Local (the default) — builds with the local Docker daemon and loads the image here:
+
 ```bash
-make buca   # builds + pushes docker.io/bborbe/alert-controller:<git-tag>
+make build    # builds docker.io/bborbe/alert-controller:<tag> locally
+make buca     # builds, pushes and cleans up locally
 ```
+
+`make buca`, `make upload` and `make clean` are local-only: a cluster build
+pushes from inside the cluster and never loads the image on this machine.
+
+Cluster — builds the same image as a Kubernetes Job in the `build` namespace and
+pushes it to Docker Hub:
+
+```bash
+make build BUILD_TARGET=sun REF=<sha> VERSION=<tag>
+```
+
+`REF` must be the full 40-character commit SHA and must exist on `origin`;
+`VERSION` must be supplied by the caller, because the cluster arm refuses to fall
+back to the newest release tag. The cluster arm pushes
+`docker.io/bborbe/alert-controller:<tag>`; `bborbe/nuke` then mirrors that Docker
+Hub image to the private registry the deployment pulls from.
 
 ## HTTP admin endpoints
 
