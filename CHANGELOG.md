@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- feat: Add `BUILD_TARGET` to `make build` so the image can be built and pushed inside a Kubernetes cluster as a Job through `hack/build-cluster.sh`; the local arm keeps `docker build --no-cache` unchanged, the cluster arm requires a caller-supplied `VERSION`, and `upload`, `clean` and `buca` refuse at parse time when pointed at a cluster
+- feat: Ship the cluster build runner under `hack/` — `build-cluster.sh`, `cluster-alias.sh` and `build-job.yaml` copied from `bborbe/agent-task-executor`, plus `build-cluster-bootstrap.sh` and `dockerconfig.json.tpl` from `bborbe/go-skeleton`, so the cluster build arm resolves the runner it invokes
+- feat: build the image as a Kubernetes Job with `make build BUILD_TARGET=<cluster> REF=<sha> VERSION=<tag>`; the local arm and its guards are unchanged, and the cluster arm pushes Docker Hub for nuke to mirror.
+
 ## v0.3.12
 
 - chore: restate the do-not-merge contract in the gate workflow
