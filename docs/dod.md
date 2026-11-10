@@ -7,6 +7,7 @@ After completing your implementation, review your own changes against each crite
 - Exported types, functions, and interfaces have doc comments
 - Error handling follows project conventions (`errors.Wrap(ctx, err, "...")` from `github.com/bborbe/errors`; never `fmt.Errorf`)
 - No debug output (print statements, `fmt.Printf`) — use structured logging
+- **Carve-out:** the `-version` path in `main.go` writes the build version, commit and date to stdout with `fmt.Fprintf` before logging is initialised; this is the only permitted direct print in the binary.
 - Follows Interface → Constructor → Struct → Method pattern
 - Uses `github.com/bborbe/time` instead of the standard `time` package
 

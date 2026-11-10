@@ -6,6 +6,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 	"os"
 	"time"
@@ -31,6 +32,13 @@ import (
 
 func main() {
 	app := &application{}
+	if hasVersionFlag(os.Args[1:]) {
+		if err := app.printVersion(context.Background(), os.Stdout); err != nil {
+			_, _ = fmt.Fprintf(os.Stderr, "print version failed: %v\n", err)
+			os.Exit(1)
+		}
+		os.Exit(0)
+	}
 	os.Exit(service.Main(context.Background(), app, &app.SentryDSN, &app.SentryProxy))
 }
 

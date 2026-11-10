@@ -38,6 +38,15 @@ back to the newest release tag. The cluster arm pushes
 `docker.io/bborbe/alert-controller:<tag>`; `bborbe/nuke` then mirrors that Docker
 Hub image to the private registry the deployment pulls from.
 
+## Version
+
+Print the build version, commit and date, then exit 0, without any other flag or
+environment variable set:
+
+```bash
+alert-controller -version
+```
+
 ## HTTP admin endpoints
 
 Served on the configured listen address (`-listen`):

@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- feat: add `-version` flag to print the build version, commit and date and exit 0 without requiring the service's required flags
+
 ## v0.4.2
 
 - chore: track prompts/in-progress and specs/in-progress so the dark-factory worktree lane can save prompt metadata
