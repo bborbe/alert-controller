@@ -13,8 +13,8 @@ import (
 	"github.com/bborbe/errors"
 	"github.com/bborbe/k8s"
 	"github.com/golang/glog"
-	v1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
-	apiextensionsClient "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
+	v1 "k8s.io/apiextensions-api/pkg/apis/apiextensions/v1"
+	apiextensionsClient "k8s.io/apiextensions-api/pkg/client/clientset/clientset"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/tools/cache"
 )
