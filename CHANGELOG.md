@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- chore: update github.com/bborbe/alert to v1.8.46, github.com/bborbe/cron to v1.9.10, github.com/bborbe/http to v1.26.33, github.com/bborbe/k8s to v1.14.32, github.com/bborbe/log to v1.7.8, github.com/bborbe/metrics to v0.6.10, github.com/bborbe/time to v1.27.26, k8s.io/api to v0.38.0-beta.0, k8s.io/apimachinery to v0.38.0-beta.0, k8s.io/client-go to v0.38.0-beta.0
+
 ## v0.4.0
 
 - feat: Add `BUILD_TARGET` to `make build` so the image can be built and pushed inside a Kubernetes cluster as a Job through `hack/build-cluster.sh`; the local arm keeps `docker build --no-cache` unchanged, the cluster arm requires a caller-supplied `VERSION`, and `upload`, `clean` and `buca` refuse at parse time when pointed at a cluster
