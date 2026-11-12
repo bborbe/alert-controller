@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- chore: update Go to 1.27.4 and github.com/bborbe/alert to v1.8.47, github.com/bborbe/cron to v1.9.11, github.com/bborbe/http to v1.26.34, github.com/bborbe/k8s to v1.14.33, github.com/bborbe/log to v1.7.9, github.com/bborbe/metrics to v0.6.12, github.com/bborbe/run to v1.11.11, github.com/bborbe/service to v1.11.3, github.com/bborbe/time to v1.27.28
+
 ## v0.4.2
 
 - chore: track prompts/in-progress and specs/in-progress so the dark-factory worktree lane can save prompt metadata
