@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+## v0.4.4
 
 - chore: remove stale vulnerability ignore IDs that no longer apply
 - ci: install Trivy from a pinned release tarball with sha256 verification (apt-key is gone from Ubuntu 26.04)
