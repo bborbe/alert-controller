@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 Please choose versions by [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- chore: update github.com/bborbe/alert to v1.8.50, github.com/bborbe/cron to v1.9.12, github.com/bborbe/errors to v1.7.1, github.com/bborbe/http to v1.28.1, github.com/bborbe/k8s to v1.16.2, github.com/bborbe/log to v1.7.10, github.com/bborbe/metrics to v0.6.15, github.com/bborbe/run to v1.13.0, github.com/bborbe/sentry to v1.11.1, github.com/bborbe/service to v1.12.2, github.com/bborbe/time to v1.27.30
+
 ## v0.4.4
 
 - chore: remove stale vulnerability ignore IDs that no longer apply
